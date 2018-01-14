@@ -106,7 +106,8 @@ echo elgg_view_field(array(
 	'value' => $entity_type,
 ));
 
-echo elgg_view_field('submit', [
+echo elgg_view_field(array(
+	'type' => 'submit',
 	'class' => 'hidden',
 	'field_class' => 'hidden',
 ));
