@@ -17,7 +17,7 @@ if (elgg_extract('show_subtype', $vars, false)) {
 		if (is_array($subtype_value) && sizeof($subtype_value) > 1) {
 			$subtype_value = '';
 		}
-		$fields .= elgg_view_input('select', array(
+		$fields .= elgg_view_field('select', array(
 			'name' => 'entity_subtype',
 			'value' => $subtype_value,
 			'options_values' => $subtype_options_values,
@@ -35,7 +35,7 @@ if (elgg_extract('show_filter', $vars, false)) {
 		foreach ($filter_options as $filter_option) {
 			$filter_options_values[$filter_option] = elgg_echo("sort:$entity_type:filter:$filter_option");
 		}
-		$fields .= elgg_view_input('select', array(
+		$fields .= elgg_view_field('select', array(
 			'name' => 'filter',
 			'value' => elgg_extract('filter', $vars, ''),
 			'options_values' => $filter_options_values,
@@ -47,7 +47,7 @@ if (elgg_extract('show_filter', $vars, false)) {
 }
 
 if (elgg_extract('show_search', $vars, false)) {
-	$fields .= elgg_view_input('text', array(
+	$fields .= elgg_view_field('text', array(
 		'name' => 'query',
 		'value' => elgg_extract('query', $vars),
 		'class' => 'elgg-sortable-list-query',
@@ -64,7 +64,7 @@ if (elgg_extract('show_sort', $vars, false)) {
 		foreach ($sort_options as $sort_option) {
 			$sort_options_values[$sort_option] = elgg_echo("sort:$entity_type:$sort_option");
 		}
-		$fields .= elgg_view_input('select', array(
+		$fields .= elgg_view_field('select', array(
 			'name' => 'sort',
 			'value' => elgg_extract('sort', $vars, 'time_created::desc'),
 			'options_values' => $sort_options_values,
@@ -96,12 +96,12 @@ if (elgg_extract('expand_form', $vars, true)) {
 }
 
 
-echo elgg_view_input('hidden', [
+echo elgg_view_field('hidden', [
 	'name' => 'entity_type',
 	'value' => $entity_type,
 ]);
 
-echo elgg_view_input('submit', [
+echo elgg_view_field('submit', [
 	'class' => 'hidden',
 	'field_class' => 'hidden',
 ]);
